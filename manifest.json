@@ -1,0 +1,18 @@
+{
+ "manifest_version": 2,
+ "name": "ReplaceR",
+ "description": "Tired of spoilers? Use the NoSpoilers Chrome Extension to block Spoilers from your browser.",
+ "version": "1.0.0",
+ "author": "Travis Woodward",
+ "browser_action": {
+   "default_icon": "find.png",
+   "default_title": "ReplaceR"
+ },
+ "content_scripts": [
+  {
+    "matches": ["<all_urls>"],
+    "js": ["contentScript.js"]
+  }
+],
+ "permissions": ["activeTab"]
+}
