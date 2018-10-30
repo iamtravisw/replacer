@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ReplaceR - Options</title>
+    <script src="contentScript.js"></script>
+</head>
+<body>
+
+    <h1>ReplaceR Options</h1>
+
+    <form action="/action_page.php">
+        Word to Replace<br>
+        <input type="text" name="Banned Word" id="bannedWord"><br>
+        Replacement Word <br>
+        <input type="text" name="New Word" id="newWord"><br>
+        <input type="button" onclick="replaceWords()" value="Submit">
+    </form>
+
+    <h1>Active Replacements</h1>
+    <table id="table" border="1">
+        <tr>
+          <th>Original</th>
+          <th>Replaced</th>
+          <th>Delete</th>
+        </tr>
+        <tr>
+          <td>replacer</td>
+          <td>ReplaceR</td>
+          <td><a href="#">Delete</a></td>
+        </tr>
+      </table>
+    
+</body>
+</html>

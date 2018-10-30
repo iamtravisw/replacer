@@ -1,6 +1,6 @@
 window.onload = noSpoilers;
 
-var keys = ["replacer"] 
+var keys = ["replacer",] 
 var values = ["ReplaceR"] 
 
 var result = {};
@@ -35,4 +35,17 @@ function noSpoilers() {
             }
         }
     }
+}
+
+function replaceWords() {
+    // Get User Input from options.html
+    var bannedWords = document.getElementById("bannedWord").value;
+    var newWords = document.getElementById("newWord").value;
+    // Push the user's values to the Array
+    keys.push(bannedWords);
+    values.push(newWords);
+    // Print the results on the screen
+    document.getElementById("original").innerHTML = keys;
+    document.getElementById("replaced").innerHTML = values;
+
 }

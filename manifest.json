@@ -1,11 +1,11 @@
 {
  "manifest_version": 2,
  "name": "ReplaceR",
- "description": "Tired of spoilers? Use the NoSpoilers Chrome Extension to block Spoilers from your browser.",
+ "description": "ReplaceR is a Google Chrome extension that lets you take specific words that show up in your Google Chrome browser and replace them with new words. For example, you can take the word 'Hell' and make it look like 'Heck'. Use ReplacR to warn you about Spoilers by changing your favorite TV Shows from their name to SPOILER ALERT!",
  "version": "1.0.0",
  "author": "Travis Woodward",
  "browser_action": {
-   "default_icon": "find.png",
+   "default_icon": "replacer.png",
    "default_title": "ReplaceR"
  },
  "content_scripts": [
@@ -14,5 +14,9 @@
     "js": ["contentScript.js"]
   }
 ],
+"options_ui": {
+  "page": "options.html",
+  "open_in_tab": false
+},
  "permissions": ["activeTab"]
 }
