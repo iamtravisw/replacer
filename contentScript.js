@@ -1,11 +1,10 @@
-window.onload = noSpoilers;
+window.onload = replacer;
+window.onload = loadTable;
 
-var keys = ["replacer",] 
-var values = ["ReplaceR"] 
+var keys = ["replacer", "bad", "fuck"] 
+var values = ["ReplaceR", "good", "frick"] 
 
-var result = {};
-keys.forEach((key, i) => result[key] = values[i]);
-console.log("Words Replaced by ReplaceR:\n" +result);
+console.log("ReplaceR Active: https://www.iamtravisw.com/p/replacer.html");
 
 String.prototype.replaceArray = function(find, replace) {
     var replaceString = this;
@@ -17,7 +16,7 @@ String.prototype.replaceArray = function(find, replace) {
     return replaceString;
   };
 
-function noSpoilers() {
+function replacer() {
     var elements = document.getElementsByTagName('*');
     for (var i = 0; i < elements.length; i++) {
         var element = elements[i];
@@ -45,7 +44,32 @@ function replaceWords() {
     keys.push(bannedWords);
     values.push(newWords);
     // Print the results on the screen
-    document.getElementById("original").innerHTML = keys;
-    document.getElementById("replaced").innerHTML = values;
-
+    var table = document.getElementById("table");
+    var row = table.insertRow(1); // Always put at top but below headers
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    cell1.innerHTML = bannedWords;
+    cell2.innerHTML = newWords;
+    cell3.innerHTML = "<a href=#>Delete</a></td>";
 }
+
+function loadTable() {
+    // Load existing values into the table
+    for (var i = 0; i < keys.length; i++){
+        for (var i = 0; i < values.length; i++){
+            var existingKeys = keys[i]; 
+            var existingValues = values[i]; 
+            var table = document.getElementById("table");
+            var row = table.insertRow(1); // Always put at top but below headers
+            var cell1 = row.insertCell(0);
+            cell1.innerHTML = existingKeys;
+            var cell2 = row.insertCell(1);
+            cell2.innerHTML = existingValues;
+            var cell3 = row.insertCell(2);
+            cell3.innerHTML = "<a href=#>Delete</a></td>";
+            console.log(keys[i]);
+            console.log(values[i]);
+        }
+    }
+} 
