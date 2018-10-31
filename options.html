@@ -3,6 +3,7 @@
 <head>
     <title>ReplaceR - Options</title>
     <script src='contentScript.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <h1>ReplaceR Options</h1>
@@ -25,7 +26,12 @@
       </table>
 
     <script>
-      window.onload = loadTable;
+        window.onload = loadTable;
+
+        $('table').on('click', 'input[type="button"]', function(e){
+                    $(this).closest('tr').remove()
+                })
+
       function loadTable() {
         // Load existing values into the table
         for (var i = 0; i < keys.length; i++){
@@ -39,13 +45,19 @@
                 var cell2 = row.insertCell(1);
                 cell2.innerHTML = existingValues;
                 var cell3 = row.insertCell(2);
-                cell3.innerHTML = "<a href=#>Delete</a></td>";
+                cell3.innerHTML = "<td><input type='button' value='Delete Row'></td>"   
+                $('td').click(function(){
+                var row_index = $(this).parent().index();
+                var currentRow=$(this).closest("tr"); 
+                var col1=currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+                var col2=currentRow.find("td:eq(1)").text(); // get current row 1st TD value
+                removeWords(col1, col2);
+                });
             }
         }
         console.log(keys,values);
     }
+    
     </script>
 </body>
 </html>
-
-

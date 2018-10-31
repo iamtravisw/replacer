@@ -12,7 +12,8 @@
   {
     "matches": ["<all_urls>"],
     "js": ["contentScript.js"],
-    "web_accessible_resources": ["options.html"]
+    "web_accessible_resources": ["options.html"],
+    "exclude_globs": [ "*options*"]
   }
 ],
 "options_ui": {

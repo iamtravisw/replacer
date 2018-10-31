@@ -1,7 +1,7 @@
 window.onload = replacer;
 
 var keys = ["replacer", "bad", "installing"] 
-var values = ["ReplaceR", "good", "*INSTALLING*"] 
+var values = ["ReplaceR", "good", "INSTALLING"] 
 
 console.log("ReplaceR Active: https://www.iamtravisw.com/p/replacer.html");
 
@@ -47,26 +47,25 @@ function replaceWords() {
     var cell3 = row.insertCell(2);
     cell1.innerHTML = bannedWords;
     cell2.innerHTML = newWords;
-    cell3.innerHTML = "<a href=#>Delete</a></td>";
+    cell3.innerHTML = "<td><input type='button' value='Delete Row'></td>";
 }
 
-/*
-function loadTable() {
-    // Load existing values into the table
-    for (var i = 0; i < keys.length; i++){
-        for (var i = 0; i < values.length; i++){
-            var existingKeys = keys[i]; 
-            var existingValues = values[i]; 
-            var table = document.getElementById("table");
-            var row = table.insertRow(1); // Always put at top but below headers
-            var cell1 = row.insertCell(0);
-            cell1.innerHTML = existingKeys;
-            var cell2 = row.insertCell(1);
-            cell2.innerHTML = existingValues;
-            var cell3 = row.insertCell(2);
-            cell3.innerHTML = "<a href=#>Delete</a></td>";
+Array.prototype.remove = function() {
+    var what, a = arguments, L = a.length, ax;
+    while (L && this.length) {
+        what = a[--L];
+        while ((ax = this.indexOf(what)) !== -1) {
+            this.splice(ax, 1);
         }
     }
-    console.log(keys,values);
+    return this;
+};
+
+function removeWords(col1, col2) {
+    console.log("before keys "+keys)
+    console.log("before values "+values)
+    keys.remove(col1);
+    values.remove(col2);
+    console.log("after keys "+keys);
+    console.log("after values "+values)
 }
-*/
