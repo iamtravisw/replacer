@@ -32,10 +32,20 @@ function replacer() {
     }
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    var link = document.getElementById('submit');
+    // onClick's logic below:
+    link.addEventListener('click', function() {
+        replaceWords()
+    });
+});
+
 function replaceWords() {
+
     // Get User Input from options.html
     var bannedWords = document.getElementById("bannedWord").value;
     var newWords = document.getElementById("newWord").value;
+
     // Push the user's values to the Array
     keys.push(bannedWords);
     values.push(newWords);
@@ -62,10 +72,41 @@ Array.prototype.remove = function() {
 };
 
 function removeWords(col1, col2) {
-    console.log("before keys "+keys)
-    console.log("before values "+values)
     keys.remove(col1);
     values.remove(col2);
-    console.log("after keys "+keys);
-    console.log("after values "+values)
+}
+
+// Only run this function on the options page!
+if(window.location.href.indexOf("options") > -1) {
+    window.onload = loadTable;
+        function loadTable() {
+        // Load existing values into the table
+        for (var i = 0; i < keys.length; i++){
+            for (var i = 0; i < values.length; i++){
+                var existingKeys = keys[i]; 
+                var existingValues = values[i]; 
+                var table = document.getElementById("table");
+                var row = table.insertRow(1); // Always put at top but below headers
+                var cell1 = row.insertCell(0);
+                cell1.innerHTML = existingKeys;
+                var cell2 = row.insertCell(1);
+                cell2.innerHTML = existingValues;
+                var cell3 = row.insertCell(2);
+                cell3.innerHTML = "<td><input type='button' value='Delete Row'></td>"   
+                $('td').click(function(){
+                var row_index = $(this).parent().index();
+                var currentRow=$(this).closest("tr"); 
+                var col1=currentRow.find("td:eq(0)").text(); // get current row 1st TD value
+                var col2=currentRow.find("td:eq(1)").text(); // get current row 1st TD value
+                removeWords(col1, col2);
+                });
+            }
+        // Removing data from the table
+        $('table').on('click', 'input[type="button"]', function(e){
+            $(this).closest('tr').remove()
+            console.log('woo')
+        })
+        }
+        console.log(keys,values);
+    }
 }

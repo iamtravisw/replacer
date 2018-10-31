@@ -11,11 +11,14 @@
  "content_scripts": [
   {
     "matches": ["<all_urls>"],
-    "js": ["contentScript.js"],
-    "web_accessible_resources": ["options.html"],
+    "js": ["contentScript.js", "jquery.min.js"],
     "exclude_globs": [ "*options*"]
   }
 ],
+"background":[
+    {
+        "scripts": ["jquery.min.js"]
+    }],
 "options_ui": {
   "page": "options.html",
   "open_in_tab": false

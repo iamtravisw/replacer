@@ -2,18 +2,18 @@
 <html>
 <head>
     <title>ReplaceR - Options</title>
+    <script src="jquery.min.js"></script>
     <script src='contentScript.js'></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <h1>ReplaceR Options</h1>
 
-    <form action="/action_page.php">
+    <form id="form">
         Word to Replace<br>
         <input type="text" name="Banned Word" id="bannedWord"><br>
         Replacement Word <br>
         <input type="text" name="New Word" id="newWord"><br>
-        <input type="button" onclick="replaceWords()" value="Submit">
+        <input type="button" id="submit" value="Submit">
     </form>
 
     <h1>Active Replacements</h1>
@@ -25,39 +25,5 @@
         </tr>
       </table>
 
-    <script>
-        window.onload = loadTable;
-
-        $('table').on('click', 'input[type="button"]', function(e){
-                    $(this).closest('tr').remove()
-                })
-
-      function loadTable() {
-        // Load existing values into the table
-        for (var i = 0; i < keys.length; i++){
-            for (var i = 0; i < values.length; i++){
-                var existingKeys = keys[i]; 
-                var existingValues = values[i]; 
-                var table = document.getElementById("table");
-                var row = table.insertRow(1); // Always put at top but below headers
-                var cell1 = row.insertCell(0);
-                cell1.innerHTML = existingKeys;
-                var cell2 = row.insertCell(1);
-                cell2.innerHTML = existingValues;
-                var cell3 = row.insertCell(2);
-                cell3.innerHTML = "<td><input type='button' value='Delete Row'></td>"   
-                $('td').click(function(){
-                var row_index = $(this).parent().index();
-                var currentRow=$(this).closest("tr"); 
-                var col1=currentRow.find("td:eq(0)").text(); // get current row 1st TD value
-                var col2=currentRow.find("td:eq(1)").text(); // get current row 1st TD value
-                removeWords(col1, col2);
-                });
-            }
-        }
-        console.log(keys,values);
-    }
-    
-    </script>
 </body>
 </html>
