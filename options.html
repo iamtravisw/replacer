@@ -2,10 +2,9 @@
 <html>
 <head>
     <title>ReplaceR - Options</title>
-    <script src="contentScript.js"></script>
+    <script src='contentScript.js'></script>
 </head>
 <body>
-
     <h1>ReplaceR Options</h1>
 
     <form action="/action_page.php">
@@ -24,7 +23,28 @@
           <th>Delete</th>
         </tr>
       </table>
-    
+
+    <script>
+      window.onload = loadTable;
+      function loadTable() {
+        // Load existing values into the table
+        for (var i = 0; i < keys.length; i++){
+            for (var i = 0; i < values.length; i++){
+                var existingKeys = keys[i]; 
+                var existingValues = values[i]; 
+                var table = document.getElementById("table");
+                var row = table.insertRow(1); // Always put at top but below headers
+                var cell1 = row.insertCell(0);
+                cell1.innerHTML = existingKeys;
+                var cell2 = row.insertCell(1);
+                cell2.innerHTML = existingValues;
+                var cell3 = row.insertCell(2);
+                cell3.innerHTML = "<a href=#>Delete</a></td>";
+            }
+        }
+        console.log(keys,values);
+    }
+    </script>
 </body>
 </html>
 

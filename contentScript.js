@@ -1,8 +1,7 @@
 window.onload = replacer;
-window.onload = loadTable;
 
-var keys = ["replacer", "bad", "fuck"] 
-var values = ["ReplaceR", "good", "frick"] 
+var keys = ["replacer", "bad", "installing"] 
+var values = ["ReplaceR", "good", "*INSTALLING*"] 
 
 console.log("ReplaceR Active: https://www.iamtravisw.com/p/replacer.html");
 
@@ -20,18 +19,15 @@ function replacer() {
     var elements = document.getElementsByTagName('*');
     for (var i = 0; i < elements.length; i++) {
         var element = elements[i];
-
         for (var j = 0; j < element.childNodes.length; j++) {
             var node = element.childNodes[j];
-
             if (node.nodeType === 3) {
                 var text = node.nodeValue;
                 var replacedText = text.replaceArray(keys, values)
-                
                 if (replacedText !== text) {
                     element.replaceChild(document.createTextNode(replacedText), node);
                 }
-            }
+            }                         
         }
     }
 }
@@ -54,6 +50,7 @@ function replaceWords() {
     cell3.innerHTML = "<a href=#>Delete</a></td>";
 }
 
+/*
 function loadTable() {
     // Load existing values into the table
     for (var i = 0; i < keys.length; i++){
@@ -68,8 +65,8 @@ function loadTable() {
             cell2.innerHTML = existingValues;
             var cell3 = row.insertCell(2);
             cell3.innerHTML = "<a href=#>Delete</a></td>";
-            console.log(keys[i]);
-            console.log(values[i]);
         }
     }
-} 
+    console.log(keys,values);
+}
+*/
