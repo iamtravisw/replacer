@@ -1,7 +1,8 @@
 window.onload = replacer;
+replaceStart();
 
-var keys = ["replacer", "bad", "installing"] 
-var values = ["ReplaceR", "good", "INSTALLING"] 
+var keys = [] 
+var values = [] 
 
 console.log("ReplaceR Active: https://www.iamtravisw.com/p/replacer.html");
 
@@ -58,6 +59,15 @@ function replaceWords() {
     cell1.innerHTML = bannedWords;
     cell2.innerHTML = newWords;
     cell3.innerHTML = "<td><input type='button' value='Delete Row'></td>";
+
+    console.log("saving")
+    chrome.storage.sync.set({
+        keys: keys,
+        values: values
+    }, function(result) {
+        console.log("saved")
+        console.log(result);
+    });
 }
 
 Array.prototype.remove = function() {
@@ -74,12 +84,30 @@ Array.prototype.remove = function() {
 function removeWords(col1, col2) {
     keys.remove(col1);
     values.remove(col2);
+    console.log("saving")
+    chrome.storage.sync.set({
+        keys: keys,
+        values: values
+    }, function(result) {
+        console.log("saved")
+        console.log(result);
+    }); 
 }
 
 // Only run this function on the options page!
 if(window.location.href.indexOf("options") > -1) {
     window.onload = loadTable;
         function loadTable() {
+
+            chrome.storage.sync.get(['keys', 'values'], function(result) {
+                console.log("loaded")
+                console.log(result)
+        
+                if (result.keys && result.values) {
+                    keys = result.keys
+                    values = result.values
+                }
+
         // Load existing values into the table
         for (var i = 0; i < keys.length; i++){
             for (var i = 0; i < values.length; i++){
@@ -106,7 +134,21 @@ if(window.location.href.indexOf("options") > -1) {
             $(this).closest('tr').remove()
             console.log('woo')
         })
+   
         }
         console.log(keys,values);
+        });
     }
+}
+
+function replaceStart() {
+chrome.storage.sync.get(['keys', 'values'], function(result) {
+    console.log("loaded")
+    console.log(result)
+    if (result.keys && result.values) {
+        keys = result.keys
+        values = result.values
+    }
+    console.log('Loading ReplaceR');
+    });
 }

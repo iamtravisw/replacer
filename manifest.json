@@ -15,10 +15,6 @@
     "exclude_globs": [ "*options*"]
   }
 ],
-"background":[
-    {
-        "scripts": ["jquery.min.js"]
-    }],
 "options_ui": {
   "page": "options.html",
   "open_in_tab": false
