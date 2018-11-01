@@ -1,7 +1,7 @@
 {
  "manifest_version": 2,
  "name": "ReplaceR",
- "description": "ReplaceR is a Google Chrome extension that lets you take specific words that show up in your Google Chrome browser and replace them with new words. For example, you can take the word 'Hell' and make it look like 'Heck'. Use ReplacR to warn you about Spoilers by changing your favorite TV Shows from their name to SPOILER ALERT!",
+ "description": "ReplaceR replaces existing words on web pages with new words. Make 'Hell' become 'Heck' or 'Game of Thrones' become 'SPOILER ALERT'.",
  "version": "1.0.0",
  "author": "Travis Woodward",
  "browser_action": {
