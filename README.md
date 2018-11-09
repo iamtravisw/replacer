@@ -40,4 +40,4 @@ Note: You will need to refresh your pages for ReplaceR to start doing it's job.
 Note: You will need to refresh your pages for ReplaceR to update.  
 
 # Download & Support
-You can download ReplaceR from the [Google Play Store](#). If you need support, please use my website [iamtravisw.com](https://www.iamtravisw.com/p/replacer.html).
+You can download ReplaceR from the [Google Play Store](https://chrome.google.com/webstore/detail/replacer/jokhdedhpjlobfbnokhfjipjdhboiing). If you need support, please use my website [iamtravisw.com](https://www.iamtravisw.com/p/replacer.html).
