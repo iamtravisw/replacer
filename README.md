@@ -1,6 +1,6 @@
 # ReplaceR
 
-![ReplaceR](https://1.bp.blogspot.com/-H6pUeRlSs_E/W9px36AVYHI/AAAAAAAAJAY/amy3aHYUWq4lSvGewQVq1mb5acxDrbKugCLcBGAs/s1600/Screenshot%2B2018-10-31%2Bat%2B9.19.38%2BPM.png)
+![ReplaceR](https://i.imgur.com/tENGgs8.png)
 
 ### Contents
 * **What is ReplaceR?**
